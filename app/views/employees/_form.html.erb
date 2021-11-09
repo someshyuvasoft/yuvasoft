@@ -1,0 +1,119 @@
+<center><h1>Employee_details<h1/></center>
+  <div class="container">
+   <%= form_with model: @employee do |f| %>
+
+  <div class="field form-group">
+    <%= f.label :"name" %><br> 
+    <%= f.text_field :name ,class:"form-control",placeholder:"name" %>
+
+    <% @employee.errors.full_messages_for(:name).each do |message| %>
+       <div><%=message%></div>
+    <% end %>
+
+
+  </div><br>
+
+  <div class="field form-group">
+    <%= f.label :"email" %><br> 
+    <%= f.text_field :email ,class:"form-control",placeholder:"email" %>
+    
+     <% @employee.errors.full_messages_for(:email).each do |message| %>
+        <div><%=message%></div>
+      <% end %>
+
+  </div><br>
+
+  <div class="field form-group">
+    <%= f.label :"date_of_birth" %>
+    <%= f.date_field :date_of_birth ,class:"form-control",placeholder:"Date for Workout" %>
+    
+    <% @employee.errors.full_messages_for(:date_of_birth).each do |message| %>
+       <div><%=message  %></div>
+    <% end %>
+
+  </div><br>
+
+  <div class="field form-group">
+    <%= f.label :gender, "Male"%>
+    <%= f.radio_button :gender,"male"%>
+
+    <%= f.label :gender, "Female" %>
+    <%= f.radio_button :gender, "female" %>
+
+    <% @employee.errors.full_messages_for(:gender).each do |message| %>
+    <div><%=message  %></div>
+     <% end %>
+
+  </div><br>
+
+
+  <div class="field form-group">
+    <%= f.label :Employe_type%>:
+   <%=f.select :Employe_type,[['Select'],['Exeperience','exeperience'],['Fresher','fresher']]%> <br/>
+
+   
+   <% @employee.errors.full_messages_for(:Employe_type).each do |message| %>
+        <div><%=message %></div>
+     <% end %>
+
+  </div><br>
+
+  <div class="field form-group">
+    <%= f.label :Technology %>
+    <%=f.select :Technology,[['Select'],['ROR','ror'],['Phython','python'],['React','react']]%><br/>
+
+     <% @employee.errors.full_messages_for(:Technology).each do |message| %>
+     <div><%=message%></div>
+     <% end %>
+
+
+  </div><br>
+
+   <div class="field form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description ,class:"form-control",placeholder:"Description" %>
+
+    <% @employee.errors.full_messages_for(:description).each do |message| %>
+      <div><%=message  %></div>
+    <% end %>
+  </div><br>
+
+   <div class="field form-group">
+    <%= f.label :"Skills" %><br> 
+    <%= f.text_area :skills ,class:"form-control",placeholder:"Skills" %>
+
+      
+
+  </div><br>
+   
+   
+   <div class="field form-group" >
+    <%= f.label :Passport_image %>
+    <%= f.file_field :image,class:"form-control",placeholder:"Passport_image" %>
+   </div><br>
+
+   <div class="field form-group" >
+    <%= f.label :Upload_Resume %>
+    <%= f.file_field :files,class:"form-control",placeholder:"Passport_image" %>
+   </div><br>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %> 
+  </div>
+
+
+</div>
+<%end%>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+$("#employee_Employe_type").change(function(){
+  alert("hi")
+})
+
+})
+  
+</script>

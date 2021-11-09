@@ -1,0 +1,20 @@
+<h1>Employee_details</h1>
+<hr>
+
+<p>Name  -<%= @employee.name %></p>
+<p>Email -<%= @employee.email%></p>
+<p>Gender -<%= @employee.gender%></p>
+<p>Date_of_birth -<%= @employee.date_of_birth%></p>
+<p>Employee_type-  <%= @employee.Employe_type%></p>
+<p>Technology-  <%= @employee.Technology%></p>
+<p>Description-  <%= @employee.description%></p>
+<p>Passport image- </p>
+
+<%=image_tag(@employee.image , width:120)%> <br/>
+
+<p>Skills-  <%= @employee.skills %></p>
+
+<%= link_to "Edit", edit_employee_path(@employee) %>
+<%= link_to "Destroy", employee_path(@employee),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>

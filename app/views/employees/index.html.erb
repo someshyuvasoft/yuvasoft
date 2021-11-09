@@ -1,0 +1,17 @@
+
+
+<hr>
+  <h1>Registered candidate-</h1>
+
+<ul>
+  <% @employees.each do |employee| %>
+    <li>
+      <%=link_to employee.name,employee_path(employee)%>
+    </li>
+
+  <% end %>
+</ul>
+
+	<b><%= link_to "new registraion", new_employee_path %></b>
+
+<hr>
