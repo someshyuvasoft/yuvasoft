@@ -10,11 +10,14 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employees_params)
-    if @employee.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    respond_to do |format|    
+     if @employee.save
+       format.js    
+       #redirect_to root_path, notice:"submitted success"
+     else
+       render :new
+     end
+   end
   end
 
   def show
@@ -49,7 +52,7 @@ class EmployeesController < ApplicationController
 
 
   def employees_params
-      params.require(:employee).permit(:name,:email,:date_of_birth,:Employe_type,:Technology ,:description, :skills,:gender,:image,files: [] )       
+      params.require(:employee).permit(:name,:email,:date_of_birth,:Employe_type,:Technology ,:description, :skills,:gender,:image,:files)       
    end
 
 

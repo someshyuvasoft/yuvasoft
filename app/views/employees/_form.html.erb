@@ -1,14 +1,12 @@
+<b><%= link_to "home", root_path %></b>
 <center><h1>Employee_details<h1/></center>
   <div class="container">
-      
-    
   
-   <%= form_with model: @employee do |f| %>
-    <form onsubmit="myFunction()">
+   <%= form_with model: @employee, local:false do |f| %>
 
   <div class="field form-group">
     <%= f.label :"name" %><br> 
-    <%= f.text_field :name ,class:"form-control",placeholder:"name" %>
+    <%= f.text_field :name ,class:"form-control",:required => true,placeholder:"name" %>
 
     <% @employee.errors.full_messages_for(:name).each do |message| %>
        <div><%=message%></div>
@@ -19,7 +17,7 @@
 
   <div class="field form-group">
     <%= f.label :"email" %><br> 
-    <%= f.text_field :email ,class:"form-control",placeholder:"email" %>
+    <%= f.text_field :email ,class:"form-control",:required => true,placeholder:"email" %>
     
      <% @employee.errors.full_messages_for(:email).each do |message| %>
         <div><%=message%></div>
@@ -29,7 +27,7 @@
 
   <div class="field form-group">
     <%= f.label :"date_of_birth" %>
-    <%= f.date_field :date_of_birth ,class:"form-control",placeholder:"Date for Workout" %>
+    <%= f.date_field :date_of_birth ,class:"form-control",:required => true,placeholder:"Date for Workout" %>
     
     <% @employee.errors.full_messages_for(:date_of_birth).each do |message| %>
        <div><%=message  %></div>
@@ -39,10 +37,10 @@
 
   <div class="field form-group">
     <%= f.label :gender, "Male"%>
-    <%= f.radio_button :gender,"male"%>
+    <%= f.radio_button :gender,"male",:required => true %>
 
     <%= f.label :gender, "Female" %>
-    <%= f.radio_button :gender, "female" %>
+    <%= f.radio_button :gender, "female",:required => true %>
 
     <% @employee.errors.full_messages_for(:gender).each do |message| %>
     <div><%=message  %></div>
@@ -53,7 +51,7 @@
 
   <div class="field form-group">
     <%= f.label :Employe_type%>:
-   <%=f.select :Employe_type,[['Select'],['Exeperience','exeperience'],['Fresher','fresher']]%> <br/>
+    <%=f.select :Employe_type,[['Select'],['Exeperience','exeperience'],['Fresher','fresher']],:required => true%> <br/>
 
    
    <% @employee.errors.full_messages_for(:Employe_type).each do |message| %>
@@ -66,7 +64,7 @@
   
   <div class="field form-group">
     <%= f.label :Technology %>
-    <%=f.select :Technology,[['Select'],['ROR','ror'],['Phython','python'],['React','react']]%><br/>
+    <%=f.select :Technology,[['Select'],['ROR','ror'],['Phython','python'],['React','react']] %><br/>
 
      <% @employee.errors.full_messages_for(:Technology).each do |message| %>
      <div><%=message%></div>
@@ -77,7 +75,7 @@
 
    <div class="field form-group">
     <%= f.label :description %>
-    <%= f.text_field :description ,class:"form-control",placeholder:"Description" %>
+    <%= f.text_field :description ,class:"form-control",placeholder:"Description"%>
 
     <% @employee.errors.full_messages_for(:description).each do |message| %>
       <div><%=message  %></div>
@@ -86,46 +84,28 @@
 </div>
 <div class="field form-group">
     <%= f.label :"Skills" %><br> 
-    <%= f.text_area :skills ,class:"form-control",placeholder:"Skills" %>
+    <%= f.text_area :skills ,class:"form-control",placeholder:"Skills",:required => true%>
 </div><br>
    
    
    <div class="field form-group" >
     <%= f.label :Passport_image %>
-    <%= f.file_field :image,class:"form-control",placeholder:"Passport_image" %>
+    <%= f.file_field :image,class:"form-control",placeholder:"Passport_image",:required => true %>
    </div><br>
 
    <div class="field form-group" >
     <%= f.label :Upload_Resume %>
-    <%= f.file_field :files,class:"form-control",placeholder:"Passport_image" %>
+    <%= f.file_field :files,class:"form-control",placeholder:"Passport_image",:required => true %>
    </div><br>
 
   <div>
-    <%= f.submit class: "btn btn-primary",data: { confirm: "Are you sure to submit" } , id: "bt" %> 
+    <%= f.submit class: "btn btn-primary", id: "bt" %> 
   </div>
-
-
 </div>
-</form>
+
 <%end%>
-<!-- <script>
-function myFunction() {
-  alert("The form was submitted");
-}
-</script> -->
 
-<!-- 
-<script>
-$(document).ready(function(){
-  $("#bt").click(function(){
-    alert("Record submitted successfully");
-  });
-});
-</script>
- -->
- <script type="text/javascript">
-
-
+<script type="text/javascript">
 $(document).ready(function(){
   $("#employee_Employe_type").click(function(){
     a = $("#employee_Employe_type").val();
@@ -135,23 +115,20 @@ $(document).ready(function(){
     else{
       $("#abc").show()
     }
-  
   });
- 
 
 });
 
-function myFunction() {
-  alert("The form was submitted");
-}
+// $(document).ready(function(){
+//   $("#bt").click(function(){
+//     a=$("#bt").val()
+//     alert("Record submitted successfully");
+
+//   });
+// });
+
+
 </script> 
 
-<!-- <script>
-$(document).ready(function(){
-  $("#employee_Employe_type").click(function(){
-    $("employee_Technology").hide();
-  });
- 
-});
-</script> -->
+
 
