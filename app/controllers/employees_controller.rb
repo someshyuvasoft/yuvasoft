@@ -12,7 +12,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employees_params)
     respond_to do |format|    
      if @employee.save
-       format.js    
+       format.js  
        #redirect_to root_path, notice:"submitted success"
      else
        render :new
@@ -22,9 +22,10 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    
   end
 
-
+ 
   def edit
    @employee = Employee.find(params[:id])
   end
@@ -47,8 +48,6 @@ class EmployeesController < ApplicationController
     redirect_to root_path
 
   end
-
-
 
 
   def employees_params

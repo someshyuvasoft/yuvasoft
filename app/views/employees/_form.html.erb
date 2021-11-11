@@ -1,4 +1,6 @@
 <b><%= link_to "home", root_path %></b>
+
+
 <center><h1>Employee_details<h1/></center>
   <div class="container">
   
@@ -90,15 +92,15 @@
    
    <div class="field form-group" >
     <%= f.label :Passport_image %>
-    <%= f.file_field :image,class:"form-control",placeholder:"Passport_image",:required => true %>
+    <%= f.file_field :image,class:"form-control",accept:'.jpeg',placeholder:"Passport_image",:required => true %>
    </div><br>
 
    <div class="field form-group" >
     <%= f.label :Upload_Resume %>
-    <%= f.file_field :files,class:"form-control",placeholder:"Passport_image",:required => true %>
+    <%= f.file_field :files, class:"form-control",placeholder:"Upload_resume",accept:'.doc',:required => true %>
    </div><br>
 
-  <div>
+  <div id="form">
     <%= f.submit class: "btn btn-primary", id: "bt" %> 
   </div>
 </div>

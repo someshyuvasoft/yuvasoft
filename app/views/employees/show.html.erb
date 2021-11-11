@@ -11,8 +11,12 @@
 <p>Passport image- </p>
 
 <%=image_tag(@employee.image , width:120)%> <br/>
-
 <p>Skills-  <%= @employee.skills %></p>
+
+
+
+
+<p>Resume-  <%= @employee.files%></p>
 
 <%= link_to "Edit", edit_employee_path(@employee) %>
 <%= link_to "Destroy", employee_path(@employee),
