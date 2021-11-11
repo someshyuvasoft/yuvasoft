@@ -12,21 +12,20 @@
     <nav class="navbar navbar-dark bg-primary">
 
          <h1>Yuvasoft</h1>
-         
+
 
    </nav>
-   <% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
+   
   </head>
 
   <body>
-    
-
+  
+</ul>
     <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
+
     </div>
   </body>
 </html>
